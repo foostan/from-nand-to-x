@@ -4,8 +4,8 @@ import (
 	"testing"
 )
 
-func TestBasicNandCalc(t *testing.T) {
-	test_calc(t, BasicNand{}, []Expect{
+func TestNandCalc(t *testing.T) {
+	test_calc(t, Nand{}, []Expect{
 		{IN: []bool{false, false}, OUT: true},
 		{IN: []bool{true, false}, OUT: true},
 		{IN: []bool{false, true}, OUT: true},

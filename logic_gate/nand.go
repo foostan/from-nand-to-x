@@ -1,15 +1,8 @@
 package logic_gate
 
-type BasicNand struct {
+type Nand struct {
 }
 
-func (n BasicNand) Calc(a bool, b bool) (out bool) {
-
-	if a == b && a == true {
-		out = false
-	} else {
-		out = true
-	}
-
-	return
+func (n Nand) Calc(a bool, b bool) (out bool) {
+	return BasicNand{}.Calc(a, b)
 }
