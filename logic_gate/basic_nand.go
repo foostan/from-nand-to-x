@@ -1,9 +1,9 @@
 package logic_gate
 
-type Nand struct {
+type BasicNand struct {
 }
 
-func (n Nand) Calc(a bool, b bool) (out bool) {
+func (n BasicNand) Calc(a bool, b bool) (out bool) {
 
 	if a == b && a == true {
 		out = false
