@@ -5,10 +5,10 @@ import (
 )
 
 func TestBasicNandCalc(t *testing.T) {
-	test_calc(t, BasicNand{}, []Expect{
-		{IN: []bool{false, false}, OUT: true},
-		{IN: []bool{true, false}, OUT: true},
-		{IN: []bool{false, true}, OUT: true},
-		{IN: []bool{true, true}, OUT: false},
+	test_calc_for_double_input(t, BasicNand{}, []ExpectForDoubleInput{
+		{A: false, B: false, OUT: true},
+		{A: true, B: false, OUT: true},
+		{A: false, B: true, OUT: true},
+		{A: true, B: true, OUT: false},
 	})
 }

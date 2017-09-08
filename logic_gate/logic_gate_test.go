@@ -4,20 +4,33 @@ import (
 	"testing"
 )
 
-type Expect struct {
-	IN  []bool
+type ExpectForSingleInput struct {
+	A   bool
 	OUT bool
 }
 
-func test_calc(t *testing.T, lg LogicGate, expects []Expect) {
+func test_input_calc_for_single_input(t *testing.T, lg SingleInputLogicGate, expects []ExpectForSingleInput) {
 
 	for i := 0; i < len(expects); i++ {
-		expect := expects[i]
-		a := expect.IN[0]
-		b := expect.IN[1]
+		actual := lg.Calc(expects[i].A)
+		expected := expects[i].OUT
+		if actual != expected {
+			t.Errorf("got %v\nwant %v", actual, expected)
+		}
+	}
+}
 
-		actual := lg.Calc(a, b)
-		expected := expect.OUT
+type ExpectForDoubleInput struct {
+	A   bool
+	B   bool
+	OUT bool
+}
+
+func test_calc_for_double_input(t *testing.T, lg DoubleInputLogicGate, expects []ExpectForDoubleInput) {
+
+	for i := 0; i < len(expects); i++ {
+		actual := lg.Calc(expects[i].A, expects[i].B)
+		expected := expects[i].OUT
 		if actual != expected {
 			t.Errorf("got %v\nwant %v", actual, expected)
 		}
