@@ -3,11 +3,13 @@ package logic_gate
 type Nand struct {
 }
 
-func (n Nand) Calc(a bool, b bool) bool {
+func (n Nand) Calc(a bool, b bool) (out bool) {
 
 	if a == b && a == true {
-		return false
+		out = false
 	} else {
-		return true
+		out = true
 	}
+
+	return
 }
