@@ -1,7 +1,16 @@
 package logic_gate
 
-type Xor struct {
+type BasicXor struct{}
+
+func (n BasicXor) Calc(a bool, b bool) (out bool) {
+	if a != b {
+		return true
+	} else {
+		return false
+	}
 }
+
+type Xor struct{}
 
 func (n Xor) Calc(a bool, b bool) (out bool) {
 	not_a := Not{}.Calc(a)

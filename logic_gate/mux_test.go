@@ -4,9 +4,23 @@ import (
 	"testing"
 )
 
-func TestMuxCalc(t *testing.T) {
-	lg := Mux{}
+type ExpectForMuxInput struct {
+	A   bool
+	B   bool
+	SEL bool
+	OUT bool
+}
 
+func TestBasicMuxCalc(t *testing.T) {
+	test_calc_for_mux(t, BasicMux{})
+}
+
+
+func TestMuxCalc(t *testing.T) {
+	test_calc_for_mux(t, Mux{})
+}
+
+func test_calc_for_mux(t *testing.T, lg MuxIf) {
 	expects := []ExpectForMuxInput{
 		{A: false, B: false, SEL: false, OUT: false},
 		{A: true, B: false, SEL: false, OUT: true},
