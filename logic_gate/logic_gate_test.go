@@ -20,6 +20,23 @@ func test_input_calc_for_single_input(t *testing.T, lg SingleInputLogicGate, exp
 	}
 }
 
+type ExpectForSingle16Input struct {
+	A   [16]bool
+	OUT [16]bool
+}
+
+func test_input_calc_for_single_16_input(t *testing.T, lg Single16InputLogicGate, expects []ExpectForSingle16Input) {
+
+	for i := 0; i < len(expects); i++ {
+		actual := lg.Calc(expects[i].A)
+		expected := expects[i].OUT
+		// slice の比較
+		if actual != expected {
+			t.Errorf("got %v\nwant %v", actual, expected)
+		}
+	}
+}
+
 type ExpectForDoubleInput struct {
 	A   bool
 	B   bool
